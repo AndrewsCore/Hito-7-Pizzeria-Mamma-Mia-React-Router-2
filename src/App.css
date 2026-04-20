@@ -1,7 +1,8 @@
 /* ESTILOS GLOBALES */
-*{
+* {
   box-sizing: border-box;
 }
+
 .app-pizzeria {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -24,10 +25,12 @@
   top: 0;
   z-index: 1000;
 }
+
 .navbar-logo {
   font-weight: bold;
   margin-right: 1.5rem;
 }
+
 .boton-nav {
   background: transparent;
   border: 1px solid #495057;
@@ -38,9 +41,11 @@
   cursor: pointer;
   font-size: 0.9rem;
 }
+
 .boton-nav:hover {
   background-color: #343a40;
 }
+
 .boton-total {
   background: transparent;
   border: 1px solid #0dcaf0;
@@ -53,208 +58,111 @@
 
 /* HEADER */
 .header-fondo {
-  background-image: url('https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-pizzas-with-tomatoes-bell-pepper-olive-corn-black-wooden-table_141793-2158.jpg');
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/apis-varias-mias.appspot.com/o/pizzeria%2Fheader.jpg?alt=media&token=38947690-3490-4c7b-b89e-26f50b864a7c');
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 200px;
   color: #ffffff;
   text-align: center;
 }
+
 .header-capa-oscura {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .header-titulo {
   margin: 0;
   font-size: 2.5rem;
 }
-.header-descripcion {
-  margin: 0.5rem 0;
-  font-size: 1.1rem;
-}
+
 .header-separador {
-  width: 80%;
-  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  width: 70%;
+  border: 0.5px solid #ffffff;
+  margin: 10px 0;
 }
 
-/* HOME */
+/* HOME - GRILLA */
 .contenedor-grilla-pizzas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
-  gap: 2rem;
-  padding: 3rem 10%;
-  flex-grow: 1;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 2rem;
 }
 
 /* CARD PIZZA */
 .tarjeta-pizza {
+  background-color: #ffffff;
   border: 1px solid #dee2e6;
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .tarjeta-imagen {
   width: 100%;
   height: 200px;
   object-fit: cover;
 }
+
 .tarjeta-contenido {
   padding: 1.5rem;
   text-align: center;
 }
+
 .tarjeta-titulo {
   margin-top: 0;
-  color:#000000;
-  font-size: 1.4rem;
-  text-align: left;
+  text-transform: capitalize;
 }
-.texto-ingredientes-titulo {
-  color: #6c757d;
-  margin-bottom: 0.5rem;
-}
+
 .lista-ingredientes {
   list-style: none;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  flex-wrap: wrap;
-  font-size: 0.9rem;
+  margin: 10px 0;
   color: #495057;
+  font-size: 0.9rem;
 }
+
 .tarjeta-precio {
   font-size: 1.3rem;
-  color: #212529;
-}
-.tarjeta-botones {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-.boton-ver-mas {
-  background: white;
-  color:#000000;
-  border: 1px solid #adb5bd;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.boton-añadir {
-  background: #212529;
-  color: #ffffff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+  margin: 15px 0;
 }
 
-/* FOOTER */
-.footer-contenedor {
-  background-color: #212529;
-  color: #ffffff;
-  text-align: center;
-  padding: 1.5rem;
+.tarjeta-botones {
+  display: flex;
+  justify-content: space-around;
+}
+
+.boton-ver-mas, .boton-añadir {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
-  .navbar-contenedor {
-	flex-direction: column;
-	gap: 10px;
-  }
-  .contenedor-grilla-pizzas {
-	padding: 1rem;
-  }
+.boton-ver-mas {
+  background-color: #ffffff;
+  border: 1px solid #343a40;
 }
 
-/* --- ESTILOS PARA FORMULARIOS (LOGIN Y REGISTRO) --- */
-
-.formulario-contenedor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  background-color: #f8f9fa;
-  min-height: 70vh;
-  flex: 1;
-}
-
-.formulario-card {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 450px;
-}
-
-.formulario-card h2 {
-  margin-bottom: 30px;
-  text-align: left;
-  font-size: 2.2rem;
-  color: #212529;
-  font-weight: 500;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #495057;
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: #86b7fe;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-}
-
-.boton-submit {
-  background-color: #0d6efd;
+.boton-añadir {
+  background-color: #212529;
   color: #ffffff;
   border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  width: fit-content;
-  margin-top: 10px;
 }
 
-.boton-submit:hover {
-  background-color: #0b5ed7;
-}
-
-/* carrito */
-
+/* CARRITO */
 .carrito-contenedor {
-  padding: 40px 10%;
   background-color: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
   max-width: 800px;
-  margin: 0 auto;
-}
-.carrito-contenedor h2 {
-color:#000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .carrito-item {
@@ -310,43 +218,113 @@ color:#000000;
   font-weight: bold;
 }
 
-.btn-restar {
-  border-color: #dc3545;
-  color: #dc3545;
+/* --- NUEVOS ESTILOS HITO 4 (DETALLE PIZZA) --- */
+
+.pizza-detalle-contenedor {
+  padding: 40px 5%;
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.pizza-detalle-card {
+  display: flex;
   background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  max-width: 1000px;
+  width: 100%;
 }
 
-.btn-sumar {
-  border-color: #0d6efd;
-  color: #0d6efd;
-  background: white;
+.pizza-detalle-img {
+  width: 50%;
+  object-fit: cover;
+  min-height: 400px;
 }
 
-.btn-restar:hover { background: #dc3545; color: white; }
-.btn-sumar:hover { background: #0d6efd; color: white; }
-
-.cantidad-texto {
-  font-weight: bold;
-  min-width: 20px;
-  text-align: center;
+.pizza-detalle-info {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.carrito-total-seccion {
-  margin-top: 30px;
-  text-align: left;
-}
-
-.carrito-total-seccion h3 {
-  font-size: 1.8rem;
+.pizza-detalle-nombre {
+  font-size: 2.2rem;
+  text-transform: capitalize;
   margin-bottom: 15px;
+  color: #212529;
 }
 
-.btn-pagar {
+.pizza-detalle-desc {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.pizza-detalle-ingredientes ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pizza-detalle-precio {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin: 20px 0;
+}
+
+.boton-añadir-detalle {
   background-color: #212529;
   color: white;
   border: none;
-  padding: 10px 25px;
-  border-radius: 4px;
+  padding: 12px 20px;
   font-size: 1.1rem;
+  border-radius: 6px;
   cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.boton-añadir-detalle:hover {
+  opacity: 0.9;
+}
+
+/* ESTADO DE CARGA */
+.cargando {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #666;
+}
+
+/* FOOTER */
+.footer-contenedor {
+  background-color: #212529;
+  color: #ffffff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto;
+}
+
+/* RESPONSIVIDAD ADICIONAL */
+@media (max-width: 850px) {
+  .pizza-detalle-card {
+    flex-direction: column;
+  }
+  .pizza-detalle-img, .pizza-detalle-info {
+    width: 100%;
+  }
+  .pizza-detalle-img {
+    height: 300px;
+    min-height: auto;
+  }
 }
