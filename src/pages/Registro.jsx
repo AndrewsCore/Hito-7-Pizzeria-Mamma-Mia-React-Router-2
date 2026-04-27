@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-const Registro = () => {
-  // Estados para capturar los datos del formulario
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -9,25 +8,21 @@ const Registro = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 1. Validación: Todos los campos obligatorios
     if (!email.trim() || !password.trim() || !confirmPassword.trim()) {
       alert("Error: Todos los campos son obligatorios.");
       return;
     }
 
-    // 2. Validación: Password debe tener al menos 6 caracteres
     if (password.length < 6) {
       alert("Error: El password debe tener al menos 6 caracteres.");
       return;
     }
 
-    // 3. Validación: Passwords deben ser iguales
     if (password !== confirmPassword) {
       alert("Error: El password y la confirmación no coinciden.");
       return;
     }
 
-    // Si pasa todas las validaciones
     alert("¡Registro exitoso!");
   };
 
@@ -75,4 +70,4 @@ const Registro = () => {
   );
 };
 
-export default Registro;
+export default Register;

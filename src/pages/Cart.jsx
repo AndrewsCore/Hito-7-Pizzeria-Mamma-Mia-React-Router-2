@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { pizzaCart } from './pizzas';
+import { pizzaCart } from '../components/Pizzas';
 
 const Cart = () => {
   // Estado para manejar el carrito

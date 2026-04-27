@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Importamos Link de React Router
 
 const Navbar = () => {
   const total = 25000;
@@ -10,21 +11,27 @@ const Navbar = () => {
     <nav id="barra-navegacion" className="navbar-contenedor">
       <div className="navbar-seccion-izquierda">
         <span className="navbar-logo">Pizzería Mamma Mia!</span>
-        <button className="boton-nav">🍕 Home</button>
+        
+        {/* Reemplazamos los botones por Links */}
+        <Link to="/" className="boton-nav" style={{ textDecoration: 'none' }}>🍕 Home</Link>
+        
         {token ? (
           <>
-            <button className="boton-nav">🔓 Profile</button>
+            <Link to="/profile" className="boton-nav" style={{ textDecoration: 'none' }}>🔓 Profile</Link>
             <button className="boton-nav">🔒 Logout</button>
           </>
         ) : (
           <>
-            <button className="boton-nav">🔐 Login</button>
-            <button className="boton-nav">🔐 Register</button>
+            <Link to="/login" className="boton-nav" style={{ textDecoration: 'none' }}>🔐 Login</Link>
+            <Link to="/register" className="boton-nav" style={{ textDecoration: 'none' }}>🔐 Register</Link>
           </>
         )}
       </div>
       <div className="navbar-seccion-derecha">
-        <button className="boton-total">🛒 Total: ${formatearMoneda(total)}</button>
+        {/* El total ahora redirige al carrito */}
+        <Link to="/cart" className="boton-total" style={{ textDecoration: 'none' }}>
+          🛒 Total: ${formatearMoneda(total)}
+        </Link>
       </div>
     </nav>
   );

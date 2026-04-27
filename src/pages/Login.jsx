@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
 
 const Login = () => {
-  // Estados para el login
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // 1. Validación: Campos obligatorios
     if (!email.trim() || !password.trim()) {
       alert("Error: Todos los campos son obligatorios.");
       return;
     }
 
-    // 2. Validación: Password al menos 6 caracteres
     if (password.length < 6) {
       alert("Error: El password debe tener al menos 6 caracteres.");
       return;
     }
 
-    // Si pasa validaciones
     alert("¡Login exitoso!");
   };
 
