@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importamos Link de React Router
+import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Navbar = () => {
-  const total = 25000;
+  // Consumimos el total directamente desde el CartContext
+  const { total } = useCart();
   const token = false;
 
   const formatearMoneda = (valor) => valor.toLocaleString('es-CL');
@@ -11,10 +13,9 @@ const Navbar = () => {
     <nav id="barra-navegacion" className="navbar-contenedor">
       <div className="navbar-seccion-izquierda">
         <span className="navbar-logo">Pizzería Mamma Mia!</span>
-        
-        {/* Reemplazamos los botones por Links */}
+
         <Link to="/" className="boton-nav" style={{ textDecoration: 'none' }}>🍕 Home</Link>
-        
+
         {token ? (
           <>
             <Link to="/profile" className="boton-nav" style={{ textDecoration: 'none' }}>🔓 Profile</Link>
@@ -28,7 +29,6 @@ const Navbar = () => {
         )}
       </div>
       <div className="navbar-seccion-derecha">
-        {/* El total ahora redirige al carrito */}
         <Link to="/cart" className="boton-total" style={{ textDecoration: 'none' }}>
           🛒 Total: ${formatearMoneda(total)}
         </Link>

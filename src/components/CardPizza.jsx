@@ -1,7 +1,15 @@
 import React from 'react';
+import { useCart } from '../context/CartContext';
 
-const CardPizza = ({ name, price, ingredients, img }) => {
+const CardPizza = ({ id, name, price, ingredients, img, desc }) => {
+  // Consumimos la función para agregar al carrito desde el Context
+  const { agregarAlCarrito } = useCart();
+
   const formatearMoneda = (valor) => valor.toLocaleString('es-CL');
+
+  const handleAnadir = () => {
+    agregarAlCarrito({ id, name, price, ingredients, img, desc });
+  };
 
   return (
     <div className="tarjeta-pizza">
@@ -21,7 +29,7 @@ const CardPizza = ({ name, price, ingredients, img }) => {
         <p className="tarjeta-precio">Precio: <strong>${formatearMoneda(price)}</strong></p>
         <div className="tarjeta-botones">
           <button className="boton-ver-mas">Ver Más 👀</button>
-          <button className="boton-añadir">Añadir 🛒</button>
+          <button className="boton-añadir" onClick={handleAnadir}>Añadir 🛒</button>
         </div>
       </div>
     </div>

@@ -12,7 +12,6 @@ const Home = () => {
         const url = "http://localhost:5000/api/pizzas";
         const response = await fetch(url);
         const data = await response.json();
-        
         setPizzas(data);
         setLoading(false);
       } catch (error) {
@@ -35,6 +34,7 @@ const Home = () => {
         {pizzas.map((pizza) => (
           <CardPizza
             key={pizza.id}
+            id={pizza.id}       // <-- necesario para el carrito
             name={pizza.name}
             price={pizza.price}
             ingredients={pizza.ingredients}
