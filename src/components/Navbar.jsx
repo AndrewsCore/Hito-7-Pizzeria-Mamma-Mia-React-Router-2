@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useUser } from '../context/UserContext';
 
 const Navbar = () => {
-  // Consumimos el total directamente desde el CartContext
   const { total } = useCart();
-  const token = false;
+  const { token, logout } = useUser();
 
   const formatearMoneda = (valor) => valor.toLocaleString('es-CL');
 
@@ -19,7 +19,7 @@ const Navbar = () => {
         {token ? (
           <>
             <Link to="/profile" className="boton-nav" style={{ textDecoration: 'none' }}>🔓 Profile</Link>
-            <button className="boton-nav">🔒 Logout</button>
+            <button className="boton-nav" onClick={logout}>🔒 Logout</button>
           </>
         ) : (
           <>

@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
 const CardPizza = ({ id, name, price, ingredients, img, desc }) => {
-  // Consumimos la función para agregar al carrito desde el Context
   const { agregarAlCarrito } = useCart();
 
   const formatearMoneda = (valor) => valor.toLocaleString('es-CL');
@@ -28,7 +28,9 @@ const CardPizza = ({ id, name, price, ingredients, img, desc }) => {
         <hr />
         <p className="tarjeta-precio">Precio: <strong>${formatearMoneda(price)}</strong></p>
         <div className="tarjeta-botones">
-          <button className="boton-ver-mas">Ver Más 👀</button>
+          <Link to={`/pizza/${id}`} className="boton-ver-mas" style={{ textDecoration: 'none' }}>
+            Ver Más 👀
+          </Link>
           <button className="boton-añadir" onClick={handleAnadir}>Añadir 🛒</button>
         </div>
       </div>

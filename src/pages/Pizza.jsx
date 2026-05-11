@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 const Pizza = () => {
-  // Estado para la pizza seleccionada
+  const { id } = useParams();
   const [pizza, setPizza] = useState(null);
+  const { agregarAlCarrito } = useCart();
 
-  // Consumimos la API al montar el componente
   useEffect(() => {
-    // Definimos la función dentro del efecto para resolver advertencias de ESLint
-    // y mantener la lógica de sincronización encapsulada.
     const obtenerDetallePizza = async () => {
       try {
-        // Endpoint fijo para el Hito 4 (p001)
-        const response = await fetch('http://localhost:5000/api/pizzas/p001');
+        const response = await fetch(`http://localhost:5000/api/pizzas/${id}`);
         const data = await response.json();
         setPizza(data);
       } catch (error) {
@@ -20,9 +19,8 @@ const Pizza = () => {
     };
 
     obtenerDetallePizza();
-  }, []); // El array vacío asegura que solo se ejecute al montar
+  }, [id]);
 
-  // Renderizado condicional mientras carga la data
   if (!pizza) return <div className="cargando">Cargando detalles de la pizza...</div>;
 
   return (
@@ -35,14 +33,18 @@ const Pizza = () => {
           <div className="pizza-detalle-ingredientes">
             <strong>Ingredientes:</strong>
             <ul>
-              {/* Usamos encadenamiento opcional ?. para evitar errores si ingredients es undefined */}
               {pizza.ingredients?.map((ingrediente, index) => (
                 <li key={index} className="text-capitalize">🍕 {ingrediente}</li>
               ))}
             </ul>
           </div>
           <h3 className="pizza-detalle-precio">Precio: ${pizza.price?.toLocaleString('es-CL')}</h3>
-          <button className="boton-añadir-detalle">Añadir al carrito 🛒</button>
+          <button
+            className="boton-añadir-detalle"
+            onClick={() => agregarAlCarrito(pizza)}
+          >
+            Añadir al carrito 🛒
+          </button>
         </div>
       </div>
     </div>
